@@ -117,7 +117,7 @@ KEYTAR_OP_RESULT SetPassword(const std::string& service,
                  const std::string& account,
                  const std::string& password,
                  std::string* errStr) {
-  LPWSTR target_name = utf8ToWideChar(service + '/' + account);
+  LPWSTR target_name = utf8ToWideChar(service);
   if (target_name == NULL) {
     return FAIL_ERROR;
   }
@@ -149,7 +149,7 @@ KEYTAR_OP_RESULT GetPassword(const std::string& service,
                  const std::string& account,
                  std::string* password,
                  std::string* errStr) {
-  LPWSTR target_name = utf8ToWideChar(service + '/' + account);
+  LPWSTR target_name = utf8ToWideChar(service);
   if (target_name == NULL) {
     return FAIL_ERROR;
   }
@@ -176,7 +176,7 @@ KEYTAR_OP_RESULT GetPassword(const std::string& service,
 KEYTAR_OP_RESULT DeletePassword(const std::string& service,
                     const std::string& account,
                     std::string* errStr) {
-  LPWSTR target_name = utf8ToWideChar(service + '/' + account);
+  LPWSTR target_name = utf8ToWideChar(service);
   if (target_name == NULL) {
     return FAIL_ERROR;
   }
@@ -199,7 +199,7 @@ KEYTAR_OP_RESULT DeletePassword(const std::string& service,
 KEYTAR_OP_RESULT FindPassword(const std::string& service,
                   std::string* password,
                   std::string* errStr) {
-  LPWSTR filter = utf8ToWideChar(service + "*");
+  LPWSTR filter = utf8ToWideChar(service);
   if (filter == NULL) {
     return FAIL_ERROR;
   }
@@ -227,7 +227,7 @@ KEYTAR_OP_RESULT FindPassword(const std::string& service,
 KEYTAR_OP_RESULT FindCredentials(const std::string& service,
                                  std::vector<Credentials>* credentials,
                                  std::string* errStr) {
-  LPWSTR filter = utf8ToWideChar(service + "*");
+  LPWSTR filter = utf8ToWideChar(service);
 
   DWORD count;
   CREDENTIAL **creds;
